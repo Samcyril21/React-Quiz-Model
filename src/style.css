@@ -30,7 +30,38 @@ h1 {
   height: 50vh;
 }
 #defaultQid {
-  background-color: blue;
-  width: 95%;
-  height: 5rem;
+  padding: 1rem;
+  background-color: rgba(9, 132, 233, 0.485);
+  width: 70%;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: 0 0 6px 3px rgb(187, 184, 184);
+}
+#setdefaultQid {
+  padding: 1rem;
+  background-color: white;
+  width: 70%;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: 0 0 6px 3px rgb(187, 184, 184);
+}
+#countdown {
+  color: rgba(32, 80, 212, 0.903);
+  background-color: white;
+  width:max-content;
+  border-radius: 30px;
+  padding: 6px;
+}
+#beforecount{
+  color: gray;
+}
+#speaknow{
+  padding: 4px;
+  width: max-content;
+  border: 2px solid rgb(26, 195, 71);
+  border-radius: 20px;
 }

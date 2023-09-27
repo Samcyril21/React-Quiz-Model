@@ -3,11 +3,13 @@ import { useState, useRef, useEffect } from 'react';
 import './style.css';
 
 export default function App() {
-  const [questionboxId,setQuestionboxId]=useState('defaultQid')
+  const [questionboxId, setQuestionboxId] = useState('defaultQid');
+
   useEffect(() => {
-    startCountdown(20);
+    startCountdown(5);
   }, []);
-  const [countdown, setCountdown] = useState(0);
+
+  const [countdown, setCountdown] = useState();
 
   const interval = useRef();
 
@@ -19,32 +21,36 @@ export default function App() {
       value--;
       if (value == 0) {
         clearInterval(interval.current);
+        setQuestionboxId('setdefaultQid');
       }
       setCountdown(value);
     }, 1000);
-    if(value==0){
-      setQuestionboxId('setdefaultQid')
-    }
-  }
-
-    return (
-      <div>
-        <div id="top"></div>
-        <div id="container">
-          <div id={questionboxId}>
-          <p>Question 2</p>
-              <p>
-               <b>
-                 What is your inspiration behind choosing Quantum physics as your
-                 career?
-               </b>
-             </p>
-             {}
-             <p>CountDown:{countdown}</p>
-          </div>
-        
-        <div id="answerbox"></div>
-        </div>
-      </div>
-    );
   };
+
+  return (
+    <div>
+      <div id="top"></div>
+      <div id="container">
+        <div id={questionboxId}>
+          <p>Question 2</p>
+          <p>
+            <b>
+              What is your inspiration behind choosing Quantum physics as your
+              career?
+            </b>
+          </p>
+          {countdown === 0 ? (
+            <p id='speaknow'>Speak Now</p>
+          ) : (
+            <p id="countdown">
+              <span id="beforecount">Start speaking in </span><b>
+              {countdown} Seconds</b>
+            </p>
+          )}
+        </div>
+
+        <div id="answerbox"></div>
+      </div>
+    </div>
+  );
+}
